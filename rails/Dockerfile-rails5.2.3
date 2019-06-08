@@ -39,7 +39,8 @@ RUN apk update && \
       ruby-json \
       tzdata \
       yaml && \
-    bundle install -j4 && \
+    mkdir /vendor && \
+    bundle install -j4 --path /vendor && \
     apk del .build-dependencies && \
     rm /app/Gemfile /app/Gemfile.lock
 
